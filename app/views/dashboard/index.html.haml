@@ -3,14 +3,32 @@
 .plus=  "You need to collect #{@sum_credit} €."
 .minus= "You owe #{@sum_debt} €."
 
-.all_users
-  %table
-    %tr
-      %th User
-      %th Owes you
-      %th You owe
-    - @users.each do |user_info|
-      %tr
-        %td= link_to user_info[0].email, transactions_path(:user => user_info[0].id)
-        %td{:class => user_info[2]}= number_to_currency(user_info[1], :locale => :fr)
+%ul.list
+  - @users.each do |user_info|
+    %li
+      %article.member-balance
+        %header
+          = link_to user_info[0].email, transactions_path(user: user_info[0].id), class: "name"
+        %div{class: user_info[2]}= number_to_currency(user_info[1], locale: :fr)
+        %footer
+          %div
+            %em Last Entry
+            %br
+            Delhaize
+
+/ %h1 Overview
+
+/ .plus=  "You need to collect #{@sum_credit} €."
+/ .minus= "You owe #{@sum_debt} €."
+
+/ .all_users
+/   %table
+/     %tr
+/       %th User
+/       %th Owes you
+/       %th You owe
+/     - @users.each do |user_info|
+/       %tr
+/         %td= link_to user_info[0].email, transactions_path(user: user_info[0].id)
+/         %td{class: user_info[2]}= number_to_currency(user_info[1], locale: :fr)
 

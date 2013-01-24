@@ -38,6 +38,13 @@ $headerFontColor:   #333;
 
 $defaultInputBorderRadius:  4px !default;
 
+html {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  width: 960px;
+  @include background-image(radial-gradient(center, ellipse cover, #5389CC 0%, #073D7F 100%));
+}
+
 
 input {
   border: 1px solid #DDD;
@@ -168,7 +175,6 @@ form {
 }
 
 body {
-  background-color: $generalBackgroundColor;
   color: $generalTextColor;
   font: $generalFontSize $generalFont;
   line-height: $generalLineHeight;
@@ -263,5 +269,48 @@ a {
     background-position: -10px -104px;
     margin-bottom: -1px;
     @include border-bottom-radius(0)
+  }
+}
+
+.list {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  li {
+    padding: 20px;
+    width: 50%;
+  }
+}
+.member-balance {
+  background: #FFF;
+  border: 1px solid #999;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, .1);
+  @include border-radius(3px);
+  footer {
+    background-color: #f7f7f7;
+    padding: 10px;
+  }
+    footer {
+    border-top: 1px solid #ddd;
+  }
+  em {
+    color: #666;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 12px;
+  }
+  .name {
+    color: #333;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
